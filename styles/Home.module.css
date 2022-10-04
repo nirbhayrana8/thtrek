@@ -1,11 +1,12 @@
 .container {
-	margin: 0 1%;
 	padding: 2% 4%;
 	line-height: 2rem;
+	box-shadow: inset -1vw 0 0 0 rgba(0, 0, 0, 1),inset 1vw 0 0 0 rgba(0, 0, 0, 1);
 }
 
-.header {
-	font-size: 22px;
+.header h2 {
+	font-size: 2rem;
+	font-weight: normal;
 }
 
 .sectionContainer {
@@ -15,7 +16,7 @@
 }
 
 .sectionDescription {
-	font-size: 18px;
+	font-size: 1.2rem;
 	width: calc(33.33333% - 20px);
 }
 

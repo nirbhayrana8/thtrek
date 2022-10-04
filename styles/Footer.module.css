@@ -1,0 +1,19 @@
+.footer {
+	background-color: #000;
+	margin: 0;
+	color: #fff;
+	position: relative;
+	margin-top: auto;
+	min-height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.items {
+	width: 100%;
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
