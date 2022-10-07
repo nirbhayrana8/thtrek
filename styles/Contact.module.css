@@ -1,0 +1,22 @@
+.mainContainer {
+	background-color: #eae4dc;
+	min-height: 100%;
+}
+
+.contactComponentTitle {
+	background-color: rgba(0, 0, 0, .05);
+	padding-top: 144px;
+	margin: 0;
+	padding-bottom: 40px;
+}
+
+.contactHeader {
+	display: flex;
+	align-items: center;
+	min-width: 100%;
+}
+
+.content {
+	min-height: 100%;
+	display: flex;
+}

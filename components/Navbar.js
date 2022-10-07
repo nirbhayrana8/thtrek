@@ -1,33 +1,55 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 import styles from "../styles/Navbar.module.css"
 
-export default function Navbar() {
+export default function Navbar({ isDarkTheme }) {
+
+	const theme = isDarkTheme ? "TransparentBlack" : "TransparentWhite"
 
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [showNavbar, setShowNavbar] = useState(false);
+
+	const [navbarTheme, setNavbarTheme] = useState(theme);
+
+	const [windowScrolled, setWindowScrolled] = useState(false);
+
+	const navbarRef = useRef();
 
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, [])
+	}, []);
+
+	useEffect(() => {
+		navbarRef.current.setAttribute("data-theme", navbarTheme);
+
+		navbarRef.current.setAttribute("data-scrolled", windowScrolled);
+	}, [navbarTheme, windowScrolled])
 
 	const handleClick = () => {
 		setMenuOpen(!menuOpen);
 	}
 
 	const handleScroll = () => {
+
+		if (window.scrollY == 0) {
+			setWindowScrolled(false);
+		}
+
+		if (window.scrollY > 0) {
+			setWindowScrolled(true);
+		}
+
 		if (window.scrollY >= 80) {
-			setShowNavbar(true);
+			setNavbarTheme("White")
 			return;
 		}
-		setShowNavbar(false);
+		setNavbarTheme(theme);
 	}
 
 	return (
 		<>
-			<nav className={showNavbar ? `${styles.navbar} ${styles.active}` : styles.navbar}>
+			<nav ref={navbarRef} className={styles.navbar}>
 				<div className={styles.logo}>
 					<i className="fa-solid fa-mountain"></i>
 					<h4>Thatharna camping</h4>

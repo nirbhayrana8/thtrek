@@ -9,7 +9,23 @@
 	justify-content: space-around;
 	align-items: center;
 	z-index: 10;
+}
+
+.navbar[data-theme="TransparentWhite"] {
 	color: #fff;
+}
+
+.navbar[data-theme="TransparentBlack"] {
+	color: #000;
+}
+
+.navbar[data-theme="White"] {
+	background-color: #fff;
+	color: #000;
+}
+
+.navbar[data-scrolled="true"] {
+	box-shadow: 1px 0px 6px rgba(0,0,0,.08);
 }
 
 .navbar a {
@@ -20,14 +36,6 @@
 .navbar:hover {
 	background-color: #fff;
 	color: #000;
-	box-shadow: 0 0 6px rgba(0,0,0,.08);
-	transition: background-color .3s ease-in-out,color .3s ease-in-out;
-}
-
-.active {
-	background-color: #fff;
-	color: #000;
-	box-shadow: 0 0 6px rgba(0,0,0,.08);
 	transition: background-color .3s ease-in-out,color .3s ease-in-out;
 }
 

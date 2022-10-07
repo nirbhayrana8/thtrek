@@ -5,7 +5,7 @@ import Footer from './Footer'
 export default function Layout({ children }) {
   return (
 	<>
-		<Navbar />
+		<Navbar isDarkTheme={false}/>
 		<main>{children}</main>
 		<Footer />
 	</>
