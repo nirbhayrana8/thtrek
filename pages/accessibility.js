@@ -26,7 +26,3 @@ export default function Accessibility() {
 	  </>
 	  )
 }
-
-Accessibility.getLayout = (page) => {
-	return page;
-}

@@ -1,3 +1,35 @@
+.header_component_root {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	width: 100%;
+	will-change: margin-top;
+	z-index: 100;
+}
+
+.banner_component_root {
+	position: relative;
+	background-color: rgba(0, 0, 0, 1);
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	padding: 12px;
+}
+
+.banner_component_content_container {
+	display: flex;
+	justify-content: center;
+	color: inherit;
+}
+
+@media (min-width: 1024px) {
+	.banner_component_title {
+		margin-right: 10px;
+	}
+}
+
 .container {
 	padding: 2% 4%;
 	line-height: 2rem;

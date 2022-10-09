@@ -32,8 +32,3 @@ export default function Contact() {
   </>
   )
 }
-
-
-Contact.getLayout = (page) => {
-  return page;
-}
