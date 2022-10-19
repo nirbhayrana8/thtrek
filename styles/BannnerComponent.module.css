@@ -1,0 +1,15 @@
+.banner_component_root {
+	position: relative;
+	background-color: rgba(0, 0, 0, 1);
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	padding: 12px;
+}
+
+.banner_component_content_container {
+	display: flex;
+	justify-content: center;
+	color: inherit;
+}

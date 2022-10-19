@@ -1,34 +1,32 @@
-import React, { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
+import { useState, useEffect, useRef } from 'react'
+import Link from "next/link";
+import styles from '../styles/MainHeader.module.css'
 
-import styles from "../styles/Navbar.module.css"
+export default function MainHeader({ isDarkTheme }) {
 
-export default function Navbar({ isDarkTheme }) {
-
-	const theme = isDarkTheme ? "TransparentBlack" : "TransparentWhite"
+	const initialTheme = isDarkTheme ? "TransparentBlack" : "TransparentWhite";
 
 	const [menuOpen, setMenuOpen] = useState(false);
 
-	const [navbarTheme, setNavbarTheme] = useState(theme);
+	const [theme, setTheme] = useState(initialTheme);
 
 	const [windowScrolled, setWindowScrolled] = useState(false);
 
-	const navbarRef = useRef();
+	const containerRef = useRef();
 
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
+
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+	})
 
 	useEffect(() => {
-		navbarRef.current.setAttribute("data-theme", navbarTheme);
+		containerRef.current.setAttribute("data-theme", theme);
 
-		navbarRef.current.setAttribute("data-scrolled", windowScrolled);
-	}, [navbarTheme, windowScrolled])
+		containerRef.current.setAttribute("data-scrolled", windowScrolled);
+	}, [theme, windowScrolled])
 
-	const handleClick = () => {
-		setMenuOpen(!menuOpen);
-	}
+	const handleClick = () => {}
 
 	const handleScroll = () => {
 
@@ -40,16 +38,14 @@ export default function Navbar({ isDarkTheme }) {
 			setWindowScrolled(true);
 		}
 
-		if (window.scrollY >= 80) {
-			setNavbarTheme("White")
-			return;
+		if (window.scrollY >= 100) {
+			setTheme("White");
 		}
-		setNavbarTheme(theme);
 	}
 
-	return (
-		<div ref={navbarRef} className={styles.navbar}>
-			<div className={styles.logo}>
+  return (
+	<div ref={containerRef} className={styles.header_component_container}>
+		<div className={styles.header_component_logo}>
 				<i className="fa-solid fa-mountain"></i>
 				<h4>Thatharna camping</h4>
 			</div>
@@ -68,6 +64,6 @@ export default function Navbar({ isDarkTheme }) {
 			<div onClick={handleClick} className={styles.hamburgerToggle}>
 				<i class="fa-solid fa-bars"></i>
 			</div>
-		</div>
-	)
+	</div>
+  )
 }

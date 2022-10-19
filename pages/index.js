@@ -3,27 +3,16 @@ import titleImage from "../public/images/test.jpg"
 import adventureImage from "../public/images/adventure-image.jpg"
 import campImage from "../public/images/camp-image.jpg"
 import houseImage from "../public/images/house.jpg"
+import HeaderComponent from "../components/HeaderComponent"
 import styles from "../styles/Home.module.css"
-import Navbar from "../components/Navbar"
 
 
 export default function Home() {
+
   return (
     <>
-      <div className={styles.header_component_root}>
-        <div className={styles.banner_component_root}>
-          <div className={styles.banner_component_content_container}>
-            <span className={styles.banner_component_title}>Feel free to call with any questions here</span>
-            <span>+91-9459210765</span>
-          </div>
-        </div>
-        <div className={styles.header_component_container}>
-          <Navbar isDarkTheme={false}/>
-        </div>
-      </div>
-      <div>
-        <Image src={titleImage} alt="Picture of our campsite" layout="responsive"/>
-      </div>
+      <HeaderComponent hasBanner={true} />
+      <Image src={titleImage} alt="Picture of our campsite" layout="responsive"/>
 
       <div className={styles.container}>
         <section>
