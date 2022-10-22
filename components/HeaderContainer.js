@@ -3,6 +3,7 @@ import styles from "../styles/HeaderContainer.module.css"
 
 export default function HeaderContainer({ children }) {
 	let scroll = useRef(0);
+	let prevDirection = useRef("DOWN");
 
 	const [headerStyle, setHeaderStyle] = useState({});
 
@@ -12,12 +13,14 @@ export default function HeaderContainer({ children }) {
 	}, [])
 
 	const handleScoll = () => {
-	  if (window.scrollY > scroll.current) {
+	  if (window.scrollY > scroll.current && prevDirection.current == "UP") {
+		prevDirection.current = "DOWN";
 		setHeaderStyle({
 		  "marginTop": "-44.8px"
 		})
 	  }
-	  else {
+	  if (window.scrollY < scroll.current && prevDirection.current == "DOWN") {
+		prevDirection.current = "UP";
 		setHeaderStyle({});
 	  }
 	  scroll.current = window.scrollY;

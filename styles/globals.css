@@ -8,4 +8,66 @@ body {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 100%;
+  /* identical to box height, or 48px */
+
+  text-transform: uppercase;
+}
+
+h2 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 120%;
+  /* or 50px */
+
+  text-transform: capitalize;
+}
+
+h3 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 120%;
+  /* or 43px */
+}
+
+h4 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 120%;
+  /* identical to box height, or 29px */
+
+  text-transform: capitalize;
+}
+
+h5 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 100%;
+  /* identical to box height, or 16px */
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }

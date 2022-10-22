@@ -1,0 +1,26 @@
+[
+	{
+		"title": "Our Story",
+		"content": "With over 20 years in the hotel industry, and franchises in multiple locations, we built Thatharna Camps with one goal in mind: to provide an unparalleled outdoor experience. Operational since <ins>2018</ins>, we annualy host hundreds of explorers looking to find a peaceful sanctuary.",
+		"image": {
+			"src": "/images/adventure-image.jpg",
+			"alt":"View from the top of Thatharna"
+		}
+	},
+	{
+		"title": "Why Thatharna",
+		"content": "Located in the Kangra valley, in the laps of the Dhauladhar range, Thatharna is a yet untouched trekking haven. Lush green meadows surrounded by the imposing Dhauladhar range make this a must visit spot for anyone looking to explore Dharamshala. Not as commercialized as it&apos;s sister trek (Triund), one gets the surety of serenity, calm and peace.",
+		"image": {
+			"src": "/images/camp-image.jpg",
+			"alt": "View from the top of Thatharna"
+		}
+	},
+	{
+		"title": "Our Spaces",
+		"content": "As our property was built in the 80&apos;s, we have smaller rooms built in traditional himachali style. However if camping is more your style, then fret not for we offer tents and a place to pitch them too. Menu options might be constrained considering the distance from civilization but it will still be the most fullfilling meal of your life.",
+		"image": {
+			"src": "/images/house.jpg",
+			"alt": "View from the top of Thatharna"
+		}
+	}
+]

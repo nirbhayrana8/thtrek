@@ -1,0 +1,154 @@
+.title_container, .text_container {
+	padding-left: 17px;
+	padding-right: 17px;
+}
+
+@media (min-width: 576px) and (max-width: 1023px) {
+	.title_container, .text_container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@media (min-width: 1024px) {
+	.title_container, .text_container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1289px) {
+	.title_container, .text_container {
+		width:calc(41.66667% - 17.5px);
+	}
+}
+
+@media (min-width: 1290px) {
+	.title_container, .text_container {
+		width:calc(33.33333% - 20px);
+	}
+}
+
+.main_container {
+	background-color: #eae4dc;
+	padding-top: 2.5rem;
+	padding-bottom: 2.625rem;
+}
+
+@media (min-width: 1024px) {
+	.main_container {
+		padding-bottom: 3.125rem;
+	}
+}
+
+.content_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between
+}
+
+@media (min-width:1024px) {
+	.content_container {
+		flex-direction: row;
+	}
+}
+
+.title_container {
+	margin-bottom: 1.75rem;
+	padding-right: 0;
+}
+
+@media (min-width:1024px) {
+	.title_container {
+		width:100%
+	}
+}
+
+.title {
+	margin-bottom: .5rem;
+}
+
+.description {
+	font-size: 1.125rem;
+	line-height: 160%;
+}
+
+@media (min-width: 1024px) {
+	.description {
+		padding-bottom: 1.5rem;
+	}
+}
+
+.image_container {
+	position: relative;
+}
+
+@media (max-width: 575px) {
+	.image_container {
+		height: 280px;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 1023px) {
+	.image_container {
+		height: 360px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.image_container {
+		height: 480px;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1289px) {
+	.image_container {
+		width: calc(58.33333% - 12.5px);
+	}
+}
+
+@media (min-width: 1290px) {
+	.image_container {
+		width: calc(66.66667% - 10px);
+	}
+}
+
+.image_container .image {
+	transition: opacity .3s ease-in-out;
+	will-change: opacity;
+}
+
+.fadeInView_component_to_fadeIn {
+	opacity: 0;
+	transition: opacity .6s cubic-bezier(.39,.575,.565,1) .2s;
+}
+
+.fadeInView_component_to_fadeIn.fadeInView_component_is_inView {
+	opacity: 1;
+}
+
+.slideUpInView_component_to_slideUp {
+	transform: translate3d(0, 45px, 0);
+	transition: transform .6s cubic-bezier(.39,.575,.565,1) .2s;
+}
+
+.slideUpInView_component_to_slideUp.slideUpInView_component_is_inView {
+	transform: translateZ(0);
+}
+
+.line_divider_appearence_dark>*{
+	background-color:rgba(0, 0, 0, 1);
+}
+
+.line_divider_appearence_light>*{
+	background-color:rgba(0, 0, 0, 1);
+}
+
+.lineDivider_progressLine {
+	height: 1px;
+}
+
+.lineDivider_animated .lineDivider_progressLine {
+	transition:width .5s ease-out
+}
+
