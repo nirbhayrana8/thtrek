@@ -6,12 +6,12 @@ export default function DescriptionComponent({ title, content, image, index }) {
 
 	const containerRef = useRef();
 
-	const [isContainerVisible, setIsContainerVisible] = useState(false);
+	const [animateContainer, setAnimateContainer] = useState(false);
 
 	const options = {
 		root: null,
 		rootMargin: "0px",
-		threshold: 0.25
+		threshold: [0, 0.2]
 	}
 
 	useEffect(() => {
@@ -24,19 +24,21 @@ export default function DescriptionComponent({ title, content, image, index }) {
 	}, [])
 
 	const callback = (entries, observer) => {
-		console.log(entries.length);
-		const [entry] = entries;
-		if (entry.isIntersecting) {
-			setIsContainerVisible(true)
-			return;
-		}
-		setIsContainerVisible(false);
+		entries.forEach(entry => {
+			if (entry.intersectionRatio < 0.15 && entry.boundingClientRect.bottom > entry.rootBounds.bottom) {
+				setAnimateContainer(false);
+			}
+
+			if (entry.intersectionRatio >= 0.2 && entry.boundingClientRect.bottom > entry.rootBounds.bottom) {
+				setAnimateContainer(true);
+			}
+		})
 	}
 
   return (
 	<div className={styles.main_container}>
 		<div ref={containerRef} className={styles.content_container}>
-			<div className={`${styles.title_container} ${styles.fadeInView_component_to_fadeIn} ${isContainerVisible ? styles.fadeInView_component_is_inView : ""}`}>
+			<div className={`${styles.title_container} ${styles.fadeInView_component_to_fadeIn} ${animateContainer ? styles.fadeInView_component_is_inView : ""}`}>
 				<h2 className={styles.title}>{title}</h2>
 				<div className={`${styles.lineDivider_animated} ${styles.line_divider_appearence_dark}`}>
 					<div className={styles.lineDivider_progressLine} style={{width: "100%"}}></div>

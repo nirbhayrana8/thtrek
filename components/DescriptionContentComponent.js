@@ -6,12 +6,12 @@ export default function DescriptionContentComponent({ content, image, index }) {
 
 	const containerRef = useRef();
 
-	const [isContainerVisible, setIsContainerVisible] = useState(false);
+	const [animateContainer, setAnimateContainer] = useState(false);
 
 	const options = {
 		root: null,
-		rootMargin: "0px",
-		threshold: 0.15
+		rootMargin: "0px 0px 50px",
+		threshold: [0, 0.15]
 	}
 
 	let isContentAlternate = false;
@@ -30,41 +30,28 @@ export default function DescriptionContentComponent({ content, image, index }) {
 	}, [])
 
 	const callback = (entries, observer) => {
-		console.log(entries.length);
-		const [entry] = entries;
-		if (entry.isIntersecting) {
-			setIsContainerVisible(true)
-			return;
-		}
-		setIsContainerVisible(false);
+		entries.forEach(entry => {
+			if (entry.intersectionRatio < 0.15 && entry.boundingClientRect.bottom > entry.rootBounds.bottom) {
+				setAnimateContainer(false);
+			}
+
+			if (entry.intersectionRatio >= 0.15 && entry.boundingClientRect.bottom > entry.rootBounds.bottom) {
+				setAnimateContainer(true);
+			}
+		})
 	}
 
 	function createMarkup() {
 		return {__html: content}
 	}
   return (
-	<>
-		{isContentAlternate ?
-		(
-			<div ref={containerRef} className={styles.content_container}>
-				<div className={`${styles.image_container} ${styles.slideUpInView_component_to_slideUp} ${isContainerVisible ? styles.slideUpInView_component_is_inView : ""}`}>
-					<Image className={styles.image} src={image.src} alt={image.alt} layout="fill"/>
-				</div>
-				<div className={`${styles.text_container} ${styles.fadeInView_component_to_fadeIn} ${isContainerVisible ? styles.fadeInView_component_is_inView : ""}`}>
-					<p className={styles.description} dangerouslySetInnerHTML={createMarkup()}></p>
-				</div>
+		<div ref={containerRef} className={`${styles.content_container} ${isContentAlternate ? styles.alternate_components : ""}`}>
+			<div className={`${styles.text_container} ${styles.fadeInView_component_to_fadeIn} ${animateContainer ? styles.fadeInView_component_is_inView : ""}`}>
+				<p className={styles.description} dangerouslySetInnerHTML={createMarkup()}></p>
+			</div>
+			<div className={`${styles.image_container} ${styles.slideUpInView_component_to_slideUp} ${animateContainer ? styles.slideUpInView_component_is_inView : ""}`}>
+				<Image className={styles.image} src={image.src} alt={image.alt} layout="fill"/>
+			</div>
 		</div>
-		) :
-		(
-			<div ref={containerRef} className={styles.content_container}>
-				<div className={`${styles.text_container} ${styles.fadeInView_component_to_fadeIn} ${isContainerVisible ? styles.fadeInView_component_is_inView : ""}`}>
-					<p className={styles.description} dangerouslySetInnerHTML={createMarkup()}></p>
-				</div>
-				<div className={`${styles.image_container} ${styles.slideUpInView_component_to_slideUp} ${isContainerVisible ? styles.slideUpInView_component_is_inView : ""}`}>
-					<Image className={styles.image} src={image.src} alt={image.alt} layout="fill"/>
-				</div>
-		</div>
-		)}
-	</>
   )
 }

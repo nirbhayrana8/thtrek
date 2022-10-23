@@ -113,6 +113,12 @@
 	}
 }
 
+@media (min-width: 1024px) {
+	.alternate_components {
+		flex-direction: row-reverse;
+	}
+}
+
 .image_container .image {
 	transition: opacity .3s ease-in-out;
 	will-change: opacity;
