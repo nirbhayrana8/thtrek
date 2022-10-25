@@ -1,8 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import styles from "../styles/DescriptionComponent.module.css"
+import { useDescription } from "../contexts/DescriptionContext"
 
-export default function DescriptionContentComponent({ content, image, index }) {
+export default function DescriptionContentComponent() {
+
+	const data = useDescription();
+	const { content, image, index } = data;
 
 	const containerRef = useRef();
 

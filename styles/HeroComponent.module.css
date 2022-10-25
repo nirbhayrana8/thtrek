@@ -34,6 +34,7 @@
 
 .image_box {
 	height: 52vh;
+	position: relative;
 }
 
 @media (min-width: 576px) and (max-width: 1023px) {
