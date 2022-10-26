@@ -21,7 +21,7 @@ export default function DescriptionComponent({ children }) {
 		observer.observe(containerRef.current);
 
 		return () => {
-			observer.unobserve(containerRef.current);
+			observer.disconnect();
 		}
 	}, [])
 

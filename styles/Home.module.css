@@ -1,8 +1,6 @@
 .container {
-	padding: 2% 4%;
-	line-height: 2rem;
-	background-color: #eae4dc;
-	box-shadow: inset -1vw 0 0 0 rgba(0, 0, 0, 1),inset 1vw 0 0 0 rgba(0, 0, 0, 1);
+	background-color: rgba(0, 0, 0, 1);
+	position: relative;
 }
 
 .header h2 {

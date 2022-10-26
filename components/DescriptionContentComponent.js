@@ -29,7 +29,7 @@ export default function DescriptionContentComponent() {
 		observer.observe(containerRef.current);
 
 		return () => {
-			observer.unobserve(containerRef.current);
+			observer.disconnect();
 		}
 	}, [])
 

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from "next/link";
+import { useNavbarContext } from "../contexts/NavbarThemeContext.js"
 import styles from '../styles/MainHeader.module.css'
 
 export default function MainHeader({ isDarkTheme }) {
@@ -7,39 +8,44 @@ export default function MainHeader({ isDarkTheme }) {
 	const initialTheme = isDarkTheme ? "TransparentBlack" : "TransparentWhite";
 
 	const [menuOpen, setMenuOpen] = useState(false);
-
-	const [theme, setTheme] = useState(initialTheme);
-
 	const [windowScrolled, setWindowScrolled] = useState(false);
+
+	const { isThemeDataSlim } = useNavbarContext();
+
+	const hasWindowScrolled = useRef(false);
 
 	const containerRef = useRef();
 
 	useEffect(() => {
+		containerRef.current.setAttribute("data-theme", initialTheme);
 		window.addEventListener("scroll", handleScroll);
 
 		return () => window.removeEventListener("scroll", handleScroll);
-	})
+	}, []);
 
 	useEffect(() => {
-		containerRef.current.setAttribute("data-theme", theme);
-
 		containerRef.current.setAttribute("data-scrolled", windowScrolled);
-	}, [theme, windowScrolled])
+	}, [windowScrolled])
 
-	const handleClick = () => {}
+	useEffect(() => {
+		containerRef.current.setAttribute("data-slim", isThemeDataSlim)
+	}, [isThemeDataSlim])
+
+	const handleClick = () => {
+		setMenuOpen(!menuOpen);
+	}
 
 	const handleScroll = () => {
 
-		if (window.scrollY == 0) {
+		if (hasWindowScrolled.current && window.scrollY == 0) {
+			hasWindowScrolled.current = false;
 			setWindowScrolled(false);
+			return;
 		}
 
-		if (window.scrollY > 0) {
+		if (!hasWindowScrolled.current && window.scrollY > 0) {
+			hasWindowScrolled.current = true;
 			setWindowScrolled(true);
-		}
-
-		if (window.scrollY >= 100) {
-			setTheme("White");
 		}
 	}
 
@@ -49,20 +55,20 @@ export default function MainHeader({ isDarkTheme }) {
 				<i className="fa-solid fa-mountain"></i>
 				<h4>Thatharna camping</h4>
 			</div>
-			<ul className={`${styles.links} ${menuOpen ? styles.active : null}`}>
-				<li>
+			<div className={`${styles.right_block} ${menuOpen ? styles.active : ""}`}>
+				<div className={styles.nav_links}>
 					<Link href="/">
 						Home
 					</Link>
-				</li>
-				<li>
+				</div>
+				<div className={styles.nav_links}>
 					<Link href="contact">
 						Contact
 					</Link>
-				</li>
-			</ul>
+				</div>
+			</div>
 			<div onClick={handleClick} className={styles.hamburgerToggle}>
-				<i class="fa-solid fa-bars"></i>
+				<i className="fa-solid fa-bars"></i>
 			</div>
 	</div>
   )
