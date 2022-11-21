@@ -1,0 +1,43 @@
+.container {
+	position: relative;
+	background-color: inherit;
+	color: inherit;
+	margin: 10px 10px;
+}
+
+.input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	background: inherit;
+	border-radius: 5px;
+	outline: none;
+	color: inherit;
+	font-size: 1em;
+	transition: all 0.3s;
+}
+
+.label {
+	position: absolute;
+	left: 0;
+	cursor: text;
+	padding: 10px;
+	font-size: 1em;
+	color: rgba(255, 255, 255, 0.25);
+	text-transform: uppercase;
+	transition: all 0.3s;
+}
+
+.input:focus ~ .label,
+.input:not(:placeholder-shown).input:not(:focus) ~ .label {
+	color: #00dfc4;
+	transform: translateX(5px) translateY(-7px);
+	padding: 0 10px;
+	font-size: 0.65em;
+	background-color: inherit;
+	letter-spacing: .1em;
+}
+
+.input:focus {
+	border: 1px solid #00dfc4;
+}

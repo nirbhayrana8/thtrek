@@ -4,12 +4,12 @@ import dynamic from 'next/dynamic'
 
 const BannerComponent = dynamic(() => import('../components/BannerComponent'))
 
-export default function HeaderComponent({ hasBanner }) {
+export default function HeaderComponent({ hasBanner, isDarkTheme }) {
 
   return (
-    <HeaderContainer>
+    <HeaderContainer hasBanner={hasBanner}>
       {hasBanner && <BannerComponent />}
-      <MainHeader />
+      <MainHeader isDarkTheme={isDarkTheme}/>
     </HeaderContainer>
   )
 }
