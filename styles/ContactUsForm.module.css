@@ -1,8 +1,13 @@
 .container {
 	display: flex;
-	flex-direction: row;
-	align-items: center;
-	flex-wrap: wrap;
-	padding: 50px;
-	background-color: #eacdea;
+}
+
+.left_block {
+	background-color: pink;
+	height: 100%;
+}
+
+.right_block {
+	display: flex;
+	flex-direction: column;
 }

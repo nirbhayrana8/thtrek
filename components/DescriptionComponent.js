@@ -2,8 +2,8 @@ import DescriptionContentComponent from './DescriptionContentComponent';
 import DescriptionContentContainer from './DescriptionComponentContainer';
 import { DescriptionContextProvider  } from '../contexts/DescriptionContext';
 
-export default function DescriptionComponent({ title, content, image, index }) {
-	const data={title, content, image, index};
+export default function DescriptionComponent({ title, content, images, index }) {
+	const data={title, content, images, index};
 
   return (
 	<DescriptionContextProvider data={data}>

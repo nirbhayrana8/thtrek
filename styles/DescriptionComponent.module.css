@@ -102,24 +102,24 @@
 	}
 }
 
-.image_container {
+.image_container, .carousel_item {
 	position: relative;
 }
 
 @media (max-width: 575px) {
-	.image_container {
+	.image_container, .carousel_item {
 		height: 280px;
 	}
 }
 
 @media (min-width: 576px) and (max-width: 1023px) {
-	.image_container {
+	.image_container, .carousel_item {
 		height: 360px;
 	}
 }
 
 @media (min-width: 1024px) {
-	.image_container {
+	.image_container, .carousel_item {
 		height: 480px;
 	}
 }

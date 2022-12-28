@@ -24,7 +24,7 @@ export default function Home() {
       <HeaderComponent hasBanner={true} isDarkTheme={false}/>
       <HeroComponent />
       <div className={styles.container}>
-        {items.map((item, index) => <DescriptionComponent key={index} index={index} title={item.title} content={item.content} image={item.image} />)}
+        {items.map((item, index) => <DescriptionComponent key={index} index={index} title={item.title} content={item.content} images={item.images} />)}
       </div>
     </NavbarThemeContextProvider>
   )

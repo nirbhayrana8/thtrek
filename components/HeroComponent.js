@@ -49,7 +49,7 @@ export default function HeroComponent() {
 					<div className={styles.grid_container}>
 						<div className={styles.hotel_info}>
 							<h1>Thatharna Camping</h1>
-							<p>A stylish campsite in Thatharna</p>
+							<p>Let the camping begin</p>
 						</div>
 					</div>
 				</div>
